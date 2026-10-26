@@ -17,7 +17,7 @@
    - 액세스 권한이 있는 사용자: **모든 사용자**
 5. **배포**를 누르고 구글 계정 권한(시트·드라이브·메일)을 허용합니다.
 6. 표시되는 **웹 앱 URL**(`https://script.google.com/macros/s/…/exec`)을 복사합니다.
-7. `config.js`의 `endpoint: ''` 따옴표 안에 붙여 넣고 저장한 뒤 GitHub에 올립니다.
+7. `config.js`의 `endpoint` 따옴표 안에 붙여 넣고, `index.html`의 `config.js?v=숫자`를 하나 올린 뒤 GitHub에 올립니다(브라우저 캐시 갱신).
 
 연결 확인: 웹 앱 URL을 브라우저로 열었을 때 `{"ok":true,"service":"온담 문의 접수"}`가 보이면 정상입니다.
 
