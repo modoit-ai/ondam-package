@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="(주)온담은 군산의 패키지 디자인·제작 전문기업입니다. 기획과 디자인, 생산까지 한 팀이 끝까지 책임집니다.">
+<meta property="og:title" content="온담 패키지 | 패키지 디자인·제작 전문기업">
+<meta property="og:description" content="마음을 담는 패키지 디자인 · 제작 전문기업 (주)온담">
+<meta property="og:image" content="https://modoit-ai.github.io/ondam-package/images/og.jpg">
+<link rel="icon" href="images/logo.png">
+<title>온담 패키지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: 회사 소개서를 펼친 듯한 편집 구성. 크림 종이 위 월넛 잉크, 올리브 한 방울. 사진은 크게, 글은 짧게 */
+:root{
+  --paper:#F4EEE5; --paper2:#EBE2D5; --ink:#2B2119; --muted:#7E6F61; --line:rgba(43,33,25,.14);
+  --olive:#3F4A33; --amber:#A8732F; --deep:#1F1913; --seal:#A2412B;
+  --f-serif:"Noto Serif KR","AppleMyungjo",serif;
+  --f-sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-latin:"Cormorant Garamond","Noto Serif KR",serif;
+  --wrap:1240px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#18140F; --paper2:#211B15; --ink:#EFE6D8; --muted:#A39482; --line:rgba(239,230,216,.14);
+  --olive:#AFBE97; --amber:#D9A35E; --deep:#0F0C09; --seal:#C8644B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#18140F; --paper2:#211B15; --ink:#EFE6D8; --muted:#A39482; --line:rgba(239,230,216,.14);
+  --olive:#AFBE97; --amber:#D9A35E; --deep:#0F0C09; --seal:#C8644B; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.8;font-weight:400;word-break:keep-all;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--f-serif);font-weight:300;letter-spacing:-.03em;line-height:1.3;text-wrap:balance}
+img{display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(88px,11vw,150px)}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.eyebrow b{font-family:var(--f-latin);font-style:italic;font-weight:400;font-size:20px;letter-spacing:0;color:var(--amber)}
+.eyebrow::after{content:"";width:48px;height:1px;background:var(--line)}
+.lead{color:var(--muted);max-width:46ch}
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px;border-radius:999px;font:500 15px var(--f-sans);border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+.btn:hover{border-color:var(--ink)}
+.btn.solid{background:var(--olive);border-color:var(--olive);color:#F4EEE5}
+.btn.solid:hover{filter:brightness(1.1)}
+.btn.light{border-color:rgba(244,238,229,.5);color:#F4EEE5}
+.btn.light:hover{border-color:#F4EEE5;background:rgba(244,238,229,.08)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.photo{position:relative;overflow:hidden;border-radius:2px;background:var(--paper2)}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.photo:hover img{transform:scale(1.03)}
+
+/* NAV */
+header.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:40;transition:background .3s,color .3s;color:#F4EEE5}
+header.nav.solid{background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo b{font-family:var(--f-serif);font-weight:500;font-size:21px;letter-spacing:.02em}
+.logo span{font-size:12px;letter-spacing:.1em;opacity:.7}
+.logo-img{height:20px;width:auto;filter:brightness(0) invert(.95) sepia(.15);transition:filter .3s}
+header.nav.solid .logo-img{filter:none}
+.logo-img.inv{height:24px;filter:brightness(0) invert(.92) sepia(.15)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header.nav.solid .logo-img{filter:brightness(0) invert(.92) sepia(.15)}}
+:root[data-theme="dark"] header.nav.solid .logo-img{filter:brightness(0) invert(.92) sepia(.15)}
+.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav ul a{opacity:.8}
+.nav ul a:hover{opacity:1}
+.nav .btn{height:42px;padding:0 20px;font-size:14px;border-color:currentColor;color:inherit}
+@media (max-width:900px){.nav ul{display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:clamp(640px,56vw,860px);display:flex;align-items:stretch;color:#F4EEE5;padding-block:150px 56px;isolation:isolate;overflow:hidden;background:var(--deep)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:100% 50%;z-index:-2;animation:settle 16s ease-out both}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(31,25,19,.45),transparent 30%),linear-gradient(90deg,rgba(31,25,19,.78),rgba(31,25,19,.45) 30%,rgba(31,25,19,0) 52%),linear-gradient(0deg,rgba(31,25,19,.6),transparent 40%)}
+@keyframes settle{from{transform:scale(1.07)}to{transform:scale(1)}}
+.hero .wrap{width:100%;display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+.hero .top{display:grid;gap:28px}
+.hero .kicker{font-size:14px;letter-spacing:.12em;opacity:.85}
+.hero h1{font-size:clamp(34px,3.9vw,60px);text-shadow:0 2px 24px rgba(31,25,19,.35);font-weight:300;line-height:1.22}
+.hero h1 em{font-style:normal;font-weight:500}
+.hero .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;border-top:1px solid rgba(244,238,229,.3);padding-top:26px}
+.hero .foot p{max-width:34ch;opacity:.85}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap}
+.hero .cta .btn.solid{background:#F4EEE5;border-color:#F4EEE5;color:#2B2119}
+@media (max-width:760px){.hero>img{object-position:72% 50%}.hero::before{background:linear-gradient(180deg,rgba(31,25,19,.7),rgba(31,25,19,.45) 55%,rgba(31,25,19,.75))}}
+@media (prefers-reduced-motion:reduce){.hero>img{animation:none}}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:start}
+.about h2{font-size:clamp(32px,3.8vw,52px);margin-top:28px}
+.about .name{margin-top:36px;padding:28px 0;border-block:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:18px 28px;align-items:baseline}
+.about .name .h{font-family:var(--f-serif);font-size:56px;font-weight:300;line-height:1;color:var(--amber)}
+.about .name p{color:var(--muted);font-size:15px}
+.about .name p b{color:var(--ink);font-weight:500;font-family:var(--f-serif);font-size:18px;display:block;margin-bottom:2px}
+.about .txt{display:grid;gap:22px;color:var(--muted);padding-top:56px}
+.about .txt p:first-child{color:var(--ink);font-size:19px;line-height:1.85;font-family:var(--f-serif)}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(56px,7vw,96px);border-top:1px solid var(--ink)}
+.figs div{padding:24px 20px 0 0;display:grid;gap:6px}
+.figs div+div{padding-left:20px;border-left:1px solid var(--line)}
+.figs b{font-variant-numeric:lining-nums tabular-nums;font-family:var(--f-latin);font-weight:400;font-size:clamp(44px,5vw,68px);line-height:1;font-variant-numeric:tabular-nums}
+.figs b small{font-family:var(--f-sans);font-size:15px;margin-left:4px;color:var(--muted)}
+.figs span{font-size:14px;color:var(--muted)}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.about .txt{padding-top:0}.figs{grid-template-columns:1fr 1fr;row-gap:28px}.figs div:nth-child(3){padding-left:0;border-left:0}}
+
+/* CEO */
+.ceo{background:var(--paper2)}
+.ceo-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.ceo .photo{aspect-ratio:3/2;max-width:100%}
+.ceo blockquote{margin:0;display:grid;gap:26px}
+.ceo blockquote h2{font-size:clamp(28px,3.2vw,44px)}
+.ceo blockquote p{color:var(--muted)}
+.ceo .sign{display:flex;align-items:baseline;gap:16px;padding-top:12px}
+.ceo .sign span{font-size:14px;color:var(--muted)}
+.ceo .sign b{font-family:var(--f-serif);font-weight:500;font-size:24px;letter-spacing:.2em}
+@media (max-width:860px){.ceo-grid{grid-template-columns:1fr}}
+
+/* VALUES */
+.values-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(40px,6vw,72px);flex-wrap:wrap}
+.values-head h2{font-size:clamp(32px,3.8vw,52px);margin-top:24px}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.v{padding:32px 32px 0 0;display:grid;gap:14px;align-content:start}
+.v+.v{padding-left:32px;border-left:1px solid var(--line)}
+.v .k{font-family:var(--f-serif);font-size:64px;font-weight:300;line-height:1;color:var(--amber)}
+.v h3{font-size:24px;font-weight:400}
+.v p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.vgrid{grid-template-columns:1fr}.v,.v+.v{padding:28px 0;border-left:0;border-bottom:1px solid var(--line)}}
+
+/* BUSINESS */
+.biz{background:var(--deep);color:#EFE6D8}
+.biz .eyebrow{color:rgba(239,230,216,.6)}
+.biz .eyebrow::after{background:rgba(239,230,216,.2)}
+.biz .lead{color:rgba(239,230,216,.65)}
+.biz-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.biz-head h2{font-size:clamp(32px,3.8vw,52px);margin-top:24px}
+.biz-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:stretch}
+.biz .photo{min-height:420px;background:#2A231C}
+.blist{display:grid;align-content:start}
+.bitem{display:grid;grid-template-columns:56px 1fr;gap:6px 18px;padding:26px 0;border-bottom:1px solid rgba(239,230,216,.16)}
+.bitem:first-child{border-top:1px solid rgba(239,230,216,.5)}
+.bitem .n{font-family:var(--f-latin);font-style:italic;font-size:22px;color:#D9A35E;grid-row:span 2}
+.bitem h3{font-size:22px;font-weight:400;color:#EFE6D8}
+.bitem p{font-size:15px;color:rgba(239,230,216,.65)}
+@media (max-width:900px){.biz-head,.biz-grid{grid-template-columns:1fr}.biz .photo{min-height:0;aspect-ratio:4/3}}
+
+/* PORTFOLIO */
+.pf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,72px)}
+.pf-head h2{font-size:clamp(32px,3.8vw,52px);margin-top:24px}
+.pgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2vw,28px)}
+.card{display:grid;gap:16px;align-content:start}
+.card .photo{max-width:100%}
+.card .meta{display:flex;justify-content:space-between;gap:16px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
+.card h3{font-size:22px;font-weight:400}
+.card h3 i{font-family:var(--f-latin);font-size:20px;color:var(--amber);margin-right:10px}
+.card p{font-size:14px;color:var(--muted);text-align:right}
+.c1{grid-column:span 7}.c1 .photo{aspect-ratio:3/2}
+.c2{grid-column:span 5;margin-top:clamp(40px,8vw,120px)}.c2 .photo{aspect-ratio:4/3.4}
+.c3{grid-column:span 5}.c3 .photo{aspect-ratio:4/3.4}
+.c4{grid-column:span 7}.c4 .photo{aspect-ratio:3/2}
+.c5{grid-column:3 / span 8;margin-top:clamp(24px,4vw,56px)}.c5 .photo{aspect-ratio:16/8}
+@media (max-width:860px){.pgrid>.card{grid-column:1/-1;margin-top:0}.card .meta{flex-direction:column}.card p{text-align:left}}
+
+/* HISTORY (물결 인포그래픽) */
+.hist{background:var(--paper2)}
+.hist-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(24px,4vw,48px)}
+.hist h2{font-size:clamp(32px,3.8vw,52px);margin-top:24px}
+.hist-head .lead{max-width:34ch}
+.tl-scroll{overflow-x:auto;padding-bottom:8px;margin-inline:-8px;padding-inline:8px}
+.wave{position:relative;aspect-ratio:1000/440;min-width:900px;max-width:100%;color:var(--ink)}
+.wave svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wv{position:absolute;width:19%;transform:translateX(-50%);display:grid;justify-items:center;text-align:center;gap:6px}
+.wv.up{bottom:calc(100% - 38.6% + 30px)}
+.wv.dn{top:calc(56.8% + 30px)}
+.wv .yr3{display:flex;align-items:center;gap:10px}
+.wv .yr3 b{font-family:var(--f-latin);font-variant-numeric:lining-nums;font-weight:400;font-size:clamp(34px,3.4vw,46px);line-height:1}
+.seal{writing-mode:vertical-rl;background:var(--seal);color:#F6EDE2;font-family:var(--f-serif);font-weight:600;font-size:12px;letter-spacing:.15em;padding:6px 3px;border-radius:2px;line-height:1;box-shadow:inset 0 0 0 1.5px rgba(246,237,226,.35)}
+.wv ul{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.6;color:var(--muted)}
+.wv .cnt{font-size:12px;letter-spacing:.04em;color:var(--amber);font-family:var(--f-serif)}
+.wv .cnt b{font-family:var(--f-latin);font-variant-numeric:lining-nums;font-size:17px;font-weight:500}
+.hist .note{margin-top:12px;font-size:13px;color:var(--muted)}
+
+/* PARTNERS */
+.partners{padding-block:clamp(64px,8vw,104px)}
+.partners-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.plogos{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.plogos div{display:grid;place-items:center;height:120px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--muted);transition:color .3s,background .3s}
+.plogos div:hover{color:var(--ink);background:color-mix(in srgb,var(--paper2) 60%,transparent)}
+.plogos svg{width:min(78%,190px);height:auto;overflow:visible}
+@media (max-width:760px){.plogos{grid-template-columns:repeat(2,1fr)}.plogos div{height:100px}}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:start}
+.contact h2{font-size:clamp(34px,4.2vw,58px);margin-top:24px}
+.info{margin-top:40px;border-top:1px solid var(--ink)}
+.info .r{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.info .r span:first-child{font-size:14px;color:var(--muted)}
+.info button{background:none;border:0;font:400 13px var(--f-sans);color:var(--muted);cursor:pointer;padding:4px 0}
+.info button:hover{color:var(--ink)}
+.map{margin-top:28px;aspect-ratio:16/9;max-width:100%;border-radius:2px;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px,var(--paper2);position:relative;display:grid;place-items:center}
+.map::before{content:"";position:absolute;left:8%;right:20%;top:58%;height:10px;background:color-mix(in srgb,var(--muted) 25%,transparent);transform:rotate(-8deg)}
+.map i{position:relative;width:14px;height:14px;border-radius:50%;background:var(--olive);box-shadow:0 0 0 8px color-mix(in srgb,var(--olive) 20%,transparent)}
+.map small{position:absolute;bottom:12px;left:14px;font-size:12px;color:var(--muted)}
+.form{background:var(--paper2);padding:clamp(24px,3.5vw,48px);border-radius:2px;min-width:0}
+.form-head{display:grid;gap:8px;margin-bottom:30px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.form-head h3{font-size:28px;font-weight:400}
+.form-head p{font-size:14px;color:var(--muted)}
+.tabs{display:flex;gap:30px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.tabs button{background:none;border:0;padding:0 0 14px;font:500 15px var(--f-sans);color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--olive)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:24px 24px}
+.f{display:grid;gap:4px;min-width:0}
+.f.full{grid-column:1/-1}
+.f>label,.f legend{font-size:13px;color:var(--muted);padding:0}
+input,select,textarea{width:100%;font:400 16px var(--f-sans);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:8px 0 10px}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--ink)}
+input::placeholder,textarea::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 9px) 55%,calc(100% - 4px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+textarea{min-height:90px;resize:vertical}
+fieldset{border:0;margin:0;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips label{position:relative;font-size:14px;border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer;transition:all .2s}
+.chips label:hover{border-color:var(--ink)}
+.chips input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chips label:has(input:checked){background:var(--olive);border-color:var(--olive);color:#F4EEE5}
+.chips label:has(input:focus-visible){outline:2px solid var(--amber);outline-offset:2px}
+input[type=file]{font-size:13px;color:var(--muted)}
+input[type=file]::file-selector-button{font:400 13px var(--f-sans);border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:7px 14px;margin-right:12px;cursor:pointer}
+.agree{grid-column:1/-1;display:flex;gap:10px;align-items:center;font-size:13px;color:var(--muted)}
+.agree input{width:auto;accent-color:var(--olive)}
+.sub{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.err{color:#B5452F;font-size:13px}
+.done{display:grid;gap:16px;padding:40px 0;justify-items:start}
+.done h3{font-size:clamp(28px,3vw,40px)}
+.done p{color:var(--muted)}
+@media (max-width:960px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.fg{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--deep);color:#EFE6D8;padding-block:72px 32px;font-size:14px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1.3fr;gap:40px}
+.fcols .logo b{font-size:26px}
+.fcols p{color:rgba(239,230,216,.6);margin-top:16px;max-width:34ch}
+.fcols h4{margin:0 0 14px;font-weight:500;font-size:14px;color:rgba(239,230,216,.6)}
+.fcols ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.fcols dl{display:grid;grid-template-columns:80px 1fr;gap:6px 12px;margin:0}
+.fcols dt{color:rgba(239,230,216,.5)}.fcols dd{margin:0}
+.fbase{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:56px;padding-top:20px;border-top:1px solid rgba(239,230,216,.14);color:rgba(239,230,216,.5);font-size:13px}
+@media (max-width:800px){.fcols{grid-template-columns:1fr}}
+
+.float{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50}
+.float a{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 22px;border-radius:999px;background:var(--olive);color:#F4EEE5;font-weight:500;font-size:15px;box-shadow:0 10px 30px rgba(31,25,19,.25)}
+
+[hidden]{display:none!important}
+.form .sending{opacity:.6;pointer-events:none}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><img class="logo-img" src="images/logo.png" alt="온담 패키지"></a>
+    <ul>
+      <li><a href="#about">회사 소개</a></li>
+      <li><a href="#business">사업 영역</a></li>
+      <li><a href="#portfolio">포트폴리오</a></li>
+      <li><a href="#history">연혁</a></li>
+      <li><a href="#contact">오시는 길</a></li>
+    </ul>
+    <a class="btn" href="#contact">문의하기</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img src="images/1.jpg" alt="앰버 올리브오일 병과 형압 크라프트 상자, 지관통이 놓인 트래버틴">
+    <div class="wrap">
+      <div class="top">
+        <span class="kicker">패키지 디자인 · 제작 전문기업 (주)온담</span>
+        <h1>마음을 <em>담는</em> 일을<br>칠 년째<br>하고 있습니다.</h1>
+      </div>
+      <div class="foot">
+        <p>온담은 브랜드의 이야기를 상자에 옮기는 패키지 회사입니다. 기획과 디자인, 생산까지 한 팀이 끝까지 책임집니다.</p>
+        <div class="cta">
+          <a class="btn solid" href="#about">회사 소개 보기</a>
+          <a class="btn light" href="#contact">문의하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <div class="eyebrow"><b>01</b>회사 소개</div>
+          <h2>따뜻함을 담아<br>건네는 회사, 온담</h2>
+          <div class="name">
+            <span class="h">溫</span><p><b>따뜻할 온</b>받는 사람의 손끝에 닿는 온기</p>
+            <span class="h">擔</span><p><b>담을 담</b>브랜드의 진심을 빈틈없이 담는 일</p>
+          </div>
+        </div>
+        <div class="txt">
+          <p>2019년 군산의 작은 디자인 스튜디오로 시작한 온담은, 지금 기획·디자인·생산을 한 지붕 아래 둔 패키지 전문기업이 되었습니다.</p>
+          <p>식품, 뷰티, 리빙 브랜드와 함께 제품의 첫인상이 되는 상자를 만듭니다. 도면 한 장, 종이 한 장을 고르는 일에도 브랜드가 하고 싶은 말을 먼저 듣습니다.</p>
+          <p>빠르게 많이 만드는 것보다, 오래 기억되는 하나를 만드는 것. 그것이 온담이 일하는 방식입니다.</p>
+        </div>
+      </div>
+      <div class="figs">
+        <div><b>2019</b><span>설립</span></div>
+        <div><b>1,240<small>곳</small></b><span>함께한 브랜드</span></div>
+        <div><b>2,300<small>㎡</small></b><span>자체 생산 공장</span></div>
+        <div><b>38<small>명</small></b><span>디자이너 · 생산 전문가</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ceo">
+    <div class="wrap">
+      <div class="ceo-grid">
+        <div class="photo"><img src="images/2.jpg" alt="월넛 뚜껑의 올리브오일 병과 꿀, 타프나드 유리병"></div>
+        <blockquote>
+          <div class="eyebrow"><b>02</b>대표 인사말</div>
+          <h2>상자는 결국,<br>사람이 사람에게 건네는 것입니다.</h2>
+          <p>처음 온담을 시작할 때 저희가 정한 기준은 하나였습니다. 우리가 만든 상자를 받은 사람이 잠시 멈춰 서게 만들 것.</p>
+          <p>그 기준은 지금도 그대로입니다. 브랜드의 가장 중요한 순간을 맡겨 주시는 만큼, 마지막 접는 선 하나까지 직접 확인하겠습니다.</p>
+          <div class="sign"><span>(주)온담 대표이사</span><b>김 온 담</b></div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="wrap">
+      <div class="values-head">
+        <div><div class="eyebrow"><b>03</b>핵심 가치</div><h2>온담이 지키는 세 가지</h2></div>
+        <p class="lead">모든 프로젝트는 이 세 가지 질문을 통과해야 출고됩니다.</p>
+      </div>
+      <div class="vgrid">
+        <div class="v"><span class="k">정성</span><h3>손끝의 디테일</h3><p>모서리 감싸기, 박 가공의 번짐, 접히는 선의 각도까지. 눈에 잘 띄지 않는 곳에서 품질이 갈린다고 믿습니다.</p></div>
+        <div class="v"><span class="k">이해</span><h3>브랜드를 먼저 읽기</h3><p>디자인을 시작하기 전에 브랜드의 고객, 제품, 판매 채널을 먼저 공부합니다. 예쁜 상자보다 맞는 상자가 우선입니다.</p></div>
+        <div class="v"><span class="k">지속</span><h3>오래 쓰이는 포장</h3><p>FSC 인증 용지와 콩기름 잉크, 재사용하고 싶은 구조를 기본으로 제안합니다. 버려지지 않는 상자가 가장 좋은 상자입니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz" id="business">
+    <div class="wrap">
+      <div class="biz-head">
+        <div><div class="eyebrow"><b>04</b>사업 영역</div><h2>기획부터 출고까지,<br>한 팀이 끝까지</h2></div>
+        <p class="lead">외주를 거치지 않고 디자인실과 생산 공장이 바로 소통하기 때문에, 시안에서 본 그대로의 결과물이 나옵니다.</p>
+      </div>
+      <div class="biz-grid">
+        <div class="photo"><img src="images/6.jpg" alt="그린 올리브오일 병과 포레스트 그린 크래커 패키지"></div>
+        <div class="blist">
+          <div class="bitem"><span class="n">i.</span><h3>브랜드 패키지 디자인</h3><p>브랜드 스토리를 담은 패키지 콘셉트, 그래픽, 구조 설계</p></div>
+          <div class="bitem"><span class="n">ii.</span><h3>맞춤 제작 · 생산</h3><p>단상자, 하드박스, 지관통, 쇼핑백까지 자체 공장 생산</p></div>
+          <div class="bitem"><span class="n">iii.</span><h3>선물세트 기획</h3><p>명절·시즌 선물세트의 구성, 내부 트레이, 리본 연출까지</p></div>
+          <div class="bitem"><span class="n">iv.</span><h3>친환경 패키지 컨설팅</h3><p>플라스틱 없는 구조, 인증 용지 전환, 포장재 절감 설계</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <div class="wrap">
+      <div class="pf-head">
+        <div><div class="eyebrow"><b>05</b>포트폴리오</div><h2>온담이 그린 컬렉션</h2></div>
+        <p class="lead">브랜드의 성격에 맞춰 재료와 색, 구조를 하나의 컬렉션으로 설계합니다.</p>
+      </div>
+      <div class="pgrid">
+        <article class="card c1"><div class="photo"><img src="images/3.jpg" alt="아이보리 세라믹 병과 슬라이드형 크래커 상자"></div><div class="meta"><h3><i>01</i>아이보리 아틀리에</h3><p>세라믹 병 · 슬라이드 상자</p></div></article>
+        <article class="card c2"><div class="photo"><img src="images/7.jpg" alt="앰버 유리병과 포레스트 그린 크래커 패키지"></div><div class="meta"><h3><i>02</i>포레스트 그로브</h3><p>그린 싸바리 · 창 뚫기 상자</p></div></article>
+        <article class="card c3"><div class="photo"><img src="images/4.jpg" alt="앰버 유리병과 크라프트 지관통 크래커 패키지"></div><div class="meta"><h3><i>03</i>앰버 모던</h3><p>크라프트 지관통 · 원목 뚜껑</p></div></article>
+        <article class="card c4"><div class="photo"><img src="images/5.jpg" alt="버건디 하드박스 선물세트"></div><div class="meta"><h3><i>04</i>버건디 아틀리에</h3><p>자석 하드박스 · 맞춤 트레이</p></div></article>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="hist" id="history">
+    <div class="wrap">
+      <div class="hist-head">
+        <div><div class="eyebrow"><b>06</b>연혁</div><h2>온담이 걸어온 길</h2></div>
+        <p class="lead">작은 물결이 모여 큰 흐름이 되듯, 한 상자씩 쌓아 온 시간입니다.</p>
+      </div>
+      <div class="tl-scroll">
+        <div class="wave">
+          <svg viewBox="0 0 1000 440" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <pattern id="seaPat" width="36" height="18" patternUnits="userSpaceOnUse">
+                <g fill="none" stroke="currentColor" stroke-width=".7"><path d="M0 18a18 18 0 0 1 36 0M6 18a12 12 0 0 1 24 0M12 18a6 6 0 0 1 12 0"/><path d="M-18 9a18 18 0 0 1 36 0M18 9a18 18 0 0 1 36 0" opacity=".6"/></g>
+              </pattern>
+              <linearGradient id="seaFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+              <mask id="seaMask"><rect x="0" y="150" width="1000" height="200" fill="url(#seaFade)"/></mask>
+            </defs>
+            <path d="M0,212 C50,212 50,170 100,170 C200,170 200,250 300,250 C400,250 400,170 500,170 C600,170 600,250 700,250 C800,250 800,170 900,170 C950,170 970,196 1000,196 L1000,350 L0,350 Z" fill="url(#seaPat)" opacity=".16" mask="url(#seaMask)"/>
+            <path d="M0,212 C50,212 50,170 100,170 C200,170 200,250 300,250 C400,250 400,170 500,170 C600,170 600,250 700,250 C800,250 800,170 900,170 C950,170 970,196 1000,196" transform="translate(0,26)" fill="none" stroke="currentColor" stroke-width="1" opacity=".18"/>
+            <path d="M0,212 C50,212 50,170 100,170 C200,170 200,250 300,250 C400,250 400,170 500,170 C600,170 600,250 700,250 C800,250 800,170 900,170 C950,170 970,196 1000,196" transform="translate(0,13)" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"/>
+            <path d="M0,212 C50,212 50,170 100,170 C200,170 200,250 300,250 C400,250 400,170 500,170 C600,170 600,250 700,250 C800,250 800,170 900,170 C950,170 970,196 1000,196" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="100" cy="170" r="13" fill="var(--paper2)" stroke="currentColor" stroke-width="1.4"/><circle cx="100" cy="170" r="5.5" fill="currentColor"/><circle cx="300" cy="250" r="13" fill="var(--paper2)" stroke="currentColor" stroke-width="1.4"/><circle cx="300" cy="250" r="5.5" fill="currentColor"/><circle cx="500" cy="170" r="13" fill="var(--paper2)" stroke="currentColor" stroke-width="1.4"/><circle cx="500" cy="170" r="5.5" fill="currentColor"/><circle cx="700" cy="250" r="13" fill="var(--paper2)" stroke="currentColor" stroke-width="1.4"/><circle cx="700" cy="250" r="5.5" fill="currentColor"/><circle cx="900" cy="170" r="13" fill="var(--paper2)" stroke="currentColor" stroke-width="1.4"/><circle cx="900" cy="170" r="5.5" fill="var(--olive)"/>
+          </svg>
+          <div class="wv up" style="left:10.0%"><div class="yr3"><b>2019</b><span class="seal">시작</span></div><ul><li>온담 디자인 스튜디오 설립</li><li>디자이너 세 명으로 출발</li></ul><span class="cnt">협업 브랜드 <b>12</b>곳</span></div>
+          <div class="wv dn" style="left:30.0%"><div class="yr3"><b>2021</b><span class="seal">성장</span></div><ul><li>대형 유통사 명절 선물세트 수주</li><li>식품 · 뷰티 브랜드로 확장</li></ul><span class="cnt">협업 브랜드 <b>180</b>곳</span></div>
+          <div class="wv up" style="left:50.0%"><div class="yr3"><b>2022</b><span class="seal">도약</span></div><ul><li>(주)온담 법인 전환</li><li>자체 생산 공장 설립</li></ul><span class="cnt">협업 브랜드 <b>420</b>곳</span></div>
+          <div class="wv dn" style="left:70.0%"><div class="yr3"><b>2024</b><span class="seal">확장</span></div><ul><li>제2공장 · 하드박스 전용 라인</li><li>FSC 인증 취득</li></ul><span class="cnt">협업 브랜드 <b>860</b>곳</span></div>
+          <div class="wv up" style="left:90.0%"><div class="yr3"><b>2026</b><span class="seal">지금</span></div><ul><li>친환경 패키지 컨설팅 시작</li><li>협업 브랜드 1,200곳 돌파</li></ul><span class="cnt">협업 브랜드 <b>1,240</b>곳</span></div>
+        </div>
+      </div>
+      <p class="note">* 협업 브랜드 수는 해당 연도 말 기준 누적 (시안용 예시 수치)</p>
+    </div>
+  </section>
+
+  <section class="partners">
+    <div class="wrap">
+      <div class="partners-head">
+        <div class="eyebrow"><b>07</b>함께한 브랜드</div>
+        <span style="font-size:13px;color:var(--muted)">* 시안용 가상 브랜드 로고입니다</span>
+      </div>
+      <div class="plogos">
+        <div><svg viewBox="0 0 200 60" aria-label="소담제과"><circle cx="24" cy="30" r="17" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 33c4-9 16-9 20 0" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="2.4" fill="currentColor"/><text x="52" y="37" font-family="Noto Serif KR, serif" font-size="20" font-weight="500" fill="currentColor" letter-spacing="2">소담제과</text></svg></div>
+        <div><svg viewBox="0 0 200 60" aria-label="결 스킨"><text x="8" y="40" font-family="Noto Sans KR, sans-serif" font-size="28" font-weight="300" fill="currentColor">결</text><line x1="48" y1="16" x2="48" y2="44" stroke="currentColor" stroke-width="1"/><text x="60" y="36" font-family="Noto Sans KR, sans-serif" font-size="14" font-weight="500" fill="currentColor" letter-spacing="6">스킨케어</text></svg></div>
+        <div><svg viewBox="0 0 200 60" aria-label="숲내음"><path d="M22 10 L36 44 H8 Z" fill="currentColor"/><path d="M22 20 L30 44" stroke="var(--paper)" stroke-width="1.5"/><rect x="20.5" y="44" width="3" height="7" fill="currentColor"/><text x="48" y="38" font-family="Noto Serif KR, serif" font-size="21" font-weight="400" fill="currentColor" letter-spacing="3">숲내음</text></svg></div>
+        <div><svg viewBox="0 0 200 60" aria-label="달빛양조"><path d="M30 12a18 18 0 1 0 0 36a14 14 0 1 1 0-36z" fill="currentColor"/><text x="54" y="31" font-family="Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="currentColor" letter-spacing="1">달빛양조</text><text x="54" y="46" font-family="Noto Sans KR, sans-serif" font-size="9" fill="currentColor" letter-spacing="3">전통주 양조장</text></svg></div>
+        <div><svg viewBox="0 0 200 60" aria-label="하루꽃"><g fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="24" cy="20" rx="5" ry="9"/><ellipse cx="24" cy="40" rx="5" ry="9"/><ellipse cx="14" cy="30" rx="9" ry="5"/><ellipse cx="34" cy="30" rx="9" ry="5"/></g><text x="52" y="38" font-family="Noto Serif KR, serif" font-size="21" font-style="italic" fill="currentColor" letter-spacing="2">하루꽃</text></svg></div>
+        <div><svg viewBox="0 0 200 60" aria-label="모노리빙"><rect x="8" y="14" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/><rect x="16" y="22" width="14" height="14" fill="currentColor"/><text x="50" y="37" font-family="Noto Sans KR, sans-serif" font-size="17" font-weight="500" fill="currentColor" letter-spacing="8">모노리빙</text></svg></div>
+        <div><svg viewBox="0 0 200 60" aria-label="봄날차"><path d="M10 34h28a14 12 0 0 1-28 0z" fill="currentColor"/><path d="M38 34c6 0 6 8 0 8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M18 26c0-5 4-5 4-10M26 26c0-5 4-5 4-10" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="52" y="38" font-family="Noto Serif KR, serif" font-size="20" font-weight="600" fill="currentColor" letter-spacing="4">봄날차</text></svg></div>
+        <div><svg viewBox="0 0 200 60" aria-label="온새미로 농장"><circle cx="24" cy="30" r="18" fill="currentColor"/><path d="M24 42V24M24 30c-6-2-8-8-8-12 5 0 8 5 8 12M24 30c6-2 8-8 8-12-5 0-8 5-8 12" fill="none" stroke="var(--paper)" stroke-width="1.6"/><text x="52" y="31" font-family="Noto Serif KR, serif" font-size="19" font-weight="500" fill="currentColor" letter-spacing="2">온새미로</text><text x="52" y="46" font-family="Noto Sans KR, sans-serif" font-size="9" fill="currentColor" letter-spacing="4">유기농 농장</text></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" style="padding-top:clamp(40px,5vw,72px)">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow"><b>08</b>문의 · 오시는 길</div>
+          <h2>브랜드의 이야기를<br>들려주세요.</h2>
+          <div class="info">
+            <div class="r"><span>주소</span><span>전북특별자치도 군산시 ○○로 00, 온담빌딩</span><button type="button" data-copy="전북특별자치도 군산시 ○○로 00, 온담빌딩">복사</button></div>
+            <div class="r"><span>전화</span><span>063-000-0000</span><button type="button" data-copy="063-000-0000">복사</button></div>
+            <div class="r"><span>이메일</span><span>hello@ondam-pack.kr</span><button type="button" data-copy="hello@ondam-pack.kr">복사</button></div>
+            <div class="r"><span>상담 시간</span><span>평일 09:00 – 18:00 · 공장 견학 예약 가능</span><span></span></div>
+          </div>
+          <div class="map" aria-label="약도 자리"><i></i><small>지도 영역 (리디에서 지도 연결)</small></div>
+        </div>
+
+        <div class="form">
+          <div class="form-head"><h3>문의하기</h3><p>제작 상담과 견적을 한 번에 받습니다. 영업일 기준 하루 안에 담당자가 연락드립니다.</p></div>
+          <form id="form-ask" novalidate>
+            <div class="fg">
+              <fieldset class="f full"><legend>문의 유형 *</legend>
+                <div class="chips">
+                  <label><input type="radio" name="kind" value="제작 상담" checked>제작 상담</label>
+                  <label><input type="radio" name="kind" value="견적 요청">견적 요청</label>
+                  <label><input type="radio" name="kind" value="공장 견학">공장 견학</label>
+                  <label><input type="radio" name="kind" value="제휴 · 기타">제휴 · 기타</label>
+                </div>
+              </fieldset>
+              <div class="f"><label for="a-company">회사 · 브랜드명 *</label><input id="a-company" required value="소담제과"></div>
+              <div class="f"><label for="a-name">담당자 *</label><input id="a-name" required value="홍길동"></div>
+              <div class="f"><label for="a-phone">연락처 *</label><input id="a-phone" type="tel" required value="010-1234-5678"></div>
+              <div class="f"><label for="a-email">이메일</label><input id="a-email" type="email" placeholder="회신 받을 주소"></div>
+              <div class="f full"><label for="a-msg">문의 내용 *</label><textarea id="a-msg" required>새로 출시하는 쿠키 선물세트 패키지를 기획부터 함께하고 싶습니다. 수량은 1,000개 정도 예상합니다.</textarea></div>
+              <div class="f full"><label for="a-file">참고 자료 (선택)</label><input id="a-file" type="file" multiple></div>
+              <label class="agree"><input type="checkbox" id="a-agree" checked> 문의 회신을 위한 개인정보 수집·이용에 동의합니다 (필수)</label>
+              <div class="sub"><span class="err" id="a-err" hidden></span><button class="btn solid" type="submit">문의 보내기</button></div>
+            </div>
+          </form>
+
+          <div class="done" id="done" hidden>
+            <span class="eyebrow"><b>✓</b>접수 완료</span>
+            <h3 id="doneTitle"></h3>
+            <p id="doneMsg"></p>
+            <button class="btn" type="button" id="again">새로 작성하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><a class="logo" href="#top"><img class="logo-img inv" src="images/logo.png" alt="온담 패키지"></a><p>마음을 담는 패키지 디자인 · 제작 전문기업</p></div>
+      <div><h4>바로가기</h4><ul><li><a href="#about">회사 소개</a></li><li><a href="#business">사업 영역</a></li><li><a href="#portfolio">포트폴리오</a></li><li><a href="#history">연혁</a></li><li><a href="#contact">문의하기</a></li></ul></div>
+      <div><h4>회사 정보</h4><dl><dt>상호</dt><dd>(주)온담</dd><dt>대표</dt><dd>김온담</dd><dt>주소</dt><dd>전북특별자치도 군산시 ○○로 00</dd><dt>사업자</dt><dd>000-00-00000</dd><dt>전화</dt><dd>063-000-0000</dd></dl></div>
+    </div>
+    <div class="fbase"><span>© 2026 (주)온담. 모든 권리 보유.</span><span>이용약관 · 개인정보처리방침</span></div>
+  </div>
+</footer>
+
+<div class="float"><a href="#contact">문의하기</a></div>
+
+<script src="config.js"></script>
+<script>
+// 히어로를 지나면 메뉴 배경을 종이색으로
+const nav=document.getElementById('nav'), hero=document.querySelector('.hero');
+const setNav=()=>nav.classList.toggle('solid', scrollY > hero.offsetHeight - 80);
+addEventListener('scroll',setNav,{passive:true}); setNav();
+
+const formAsk=document.getElementById('form-ask'), done=document.getElementById('done');
+// 문의 전송: config.js 의 endpoint(구글 Apps Script 웹 앱 주소)로 보내 구글 시트·드라이브에 저장
+const MAX_FILE_MB=10;
+const toBase64=f=>new Promise((ok,no)=>{const r=new FileReader(); r.onload=()=>ok(String(r.result).split(',')[1]); r.onerror=no; r.readAsDataURL(f)});
+formAsk.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const err=document.getElementById('a-err');
+  const miss=[...formAsk.querySelectorAll('[required]')].filter(x=>!x.value.trim());
+  if(miss.length){err.textContent='필수 항목을 채워 주세요: '+miss.map(x=>formAsk.querySelector(`label[for="${x.id}"]`).textContent.replace('*','').trim()).join(', '); err.hidden=false; miss[0].focus(); return}
+  if(!document.getElementById('a-agree').checked){err.textContent='개인정보 수집·이용에 동의해 주세요.'; err.hidden=false; return}
+  const files=[...document.getElementById('a-file').files];
+  if(files.reduce((t,f)=>t+f.size,0)>MAX_FILE_MB*1024*1024){err.textContent=`첨부 파일은 합쳐서 ${MAX_FILE_MB}MB까지 보낼 수 있습니다.`; err.hidden=false; return}
+  err.hidden=true;
+  const kind=formAsk.querySelector('input[name=kind]:checked').value;
+  const endpoint=(window.ONDAM_CONFIG||{}).endpoint;
+  const btn=formAsk.querySelector('button[type=submit]');
+  if(endpoint){
+    btn.textContent='보내는 중…'; formAsk.classList.add('sending');
+    try{
+      const payload={kind,company:val('a-company'),name:val('a-name'),phone:val('a-phone'),email:val('a-email'),message:val('a-msg'),agree:true,
+        files:await Promise.all(files.map(async f=>({name:f.name,type:f.type||'application/octet-stream',data:await toBase64(f)})))};
+      const res=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+      const out=await res.json();
+      if(!out.ok) throw new Error(out.error||'저장 실패');
+    }catch(x){
+      err.textContent='문의를 보내지 못했습니다. 잠시 후 다시 시도하거나 전화(063-000-0000)로 연락해 주세요.'; err.hidden=false;
+      btn.textContent='문의 보내기'; formAsk.classList.remove('sending'); return;
+    }
+    btn.textContent='문의 보내기'; formAsk.classList.remove('sending');
+  }
+  formAsk.hidden=true;
+  document.getElementById('doneTitle').textContent=kind+' 문의를 받았습니다.';
+  document.getElementById('doneMsg').textContent= endpoint ? '영업일 기준 하루 안에 담당자가 연락드립니다.' : '영업일 기준 하루 안에 담당자가 연락드립니다. (아직 접수 주소가 연결되지 않아 실제로 저장되지는 않았습니다.)';
+  done.hidden=false;
+  formAsk.reset();
+});
+function val(id){return document.getElementById(id).value.trim()}
+document.getElementById('again').onclick=()=>{done.hidden=true; formAsk.hidden=false};
+
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  navigator.clipboard.writeText(b.dataset.copy).then(()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='복사',1500)}).catch(()=>{b.textContent=b.dataset.copy});
+}));
+</script>
+</body>
+</html>
